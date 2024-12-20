@@ -1,4 +1,15 @@
+// Decorador
+
+function estampar(logo: string){
+    return function(target: Function){
+        target.prototype.estampacion = function(): void{
+            console.log("Camiseta estampada con el logo de: " + logo);
+        }
+    }
+}
+
 // Clase (Molde del objecto)
+@estampar("Gucci Gang") // Aplicando el decorador creado arriba
 class Camiseta{
     // Propiedades
     private color: string;
@@ -68,3 +79,7 @@ console.log(camiseta, playera);
 playera.setColor("Arcoiris");
 
 console.log(playera); */
+
+var camiseta = new Camiseta("Negro", "Manga corta", "Nike", "M", 700);
+console.log(camiseta);
+camiseta.estampacion()
