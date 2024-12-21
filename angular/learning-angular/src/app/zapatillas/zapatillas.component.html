@@ -1,0 +1,27 @@
+<h2>{{ title }}</h2>
+
+<!-- <ul>
+    <li *ngFor="let items of zapatillas">{{ items.name }} - <b>{{ items.price}}</b></li>
+</ul> -->
+<table>
+    <thead>
+        <tr>
+            <th>No.</th>
+            <th>Nombre</th>
+            <th>Marca</th>
+            <th>Color</th>
+            <th>Precio</th>
+            <th>Stock</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let items of zapatillas; let no = index">
+            <td>{{ no + 1 }}</td>
+            <td>{{ items.name }}</td>
+            <td>{{ items.brand }}</td>
+            <td>{{ items.color }}</td>
+            <td>{{ items.price }}</td>
+            <td>{{ items.stock }}</td>
+        </tr>
+    </tbody>
+</table>

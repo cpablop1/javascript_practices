@@ -1,2 +1,11 @@
+<h1>{{ title }}</h1>
 
-<app-videojuego></app-videojuego>
+<button (click)="hideVideogames(false)" *ngIf="show_videogames">Ocultar</button>
+<button (click)="hideVideogames(true)" *ngIf="!show_videogames">Mostrar</button>
+
+<app-videojuego *ngIf="show_videogames"></app-videojuego>
+<h1>{{ show_videogames }}</h1>
+
+<app-zapatillas></app-zapatillas>
+
+<app-cursos></app-cursos>
