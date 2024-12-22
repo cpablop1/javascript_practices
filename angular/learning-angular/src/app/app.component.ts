@@ -1,18 +1,15 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { RouterModule } from '@angular/router';
 
 import { CommonModule } from '@angular/common';
-
-import { VideojuegoComponent } from './videojuego/videojuego.component';
-import { ZapatillasComponent } from './zapatillas/zapatillas.component';
-import { CursosComponent } from './cursos/cursos.component';
 
 import { Config } from './models/config';
 
 @Component({
   selector: 'app-root',
   //imports: [RouterOutlet, VideojuegoComponent],
-  imports: [CommonModule, VideojuegoComponent, ZapatillasComponent, CursosComponent],
+  imports: [CommonModule, RouterModule, RouterOutlet],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

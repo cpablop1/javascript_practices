@@ -1,11 +1,13 @@
 <h1>{{ title }}</h1>
 
-<button (click)="hideVideogames(false)" *ngIf="show_videogames">Ocultar</button>
-<button (click)="hideVideogames(true)" *ngIf="!show_videogames">Mostrar</button>
+<nav>
+    <a [routerLink]="['/home']" [routerLinkActive]="['active']">Home</a>
+    &nbsp;
+    <a [routerLink]="['/zapatillas']" [routerLinkActive]="['active']">Zapataillas</a>
+    &nbsp;
+    <a [routerLink]="['/videojuego']" [routerLinkActive]="['active']">Videojuegos</a>
+    &nbsp;
+    <a [routerLink]="['/curso']" [routerLinkActive]="['active']">Cursos</a>
+</nav>
 
-<app-videojuego *ngIf="show_videogames"></app-videojuego>
-<h1>{{ show_videogames }}</h1>
-
-<app-zapatillas></app-zapatillas>
-
-<app-cursos></app-cursos>
+<router-outlet></router-outlet>
