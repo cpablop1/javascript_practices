@@ -1,1 +1,11 @@
-<p>home works!</p>
+<h1>Home page</h1>
+
+<div *ngIf="identified; else unidentified">
+    <h3>You are logged in to the app.</h3>
+    <button (click)="logout()">Logout</button>
+</div>
+
+<ng-template #unidentified>
+    <h3>You are not logged in, press this button to log in.</h3>
+    <button (click)="login()">Login</button>
+</ng-template>
