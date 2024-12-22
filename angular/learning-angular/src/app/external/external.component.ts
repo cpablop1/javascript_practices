@@ -14,6 +14,7 @@ import { RequestsService } from '../services/requests.service';
 export class ExternalComponent implements OnInit {
   public user: any;
   public userId: any;
+  public date: any;
 
   constructor(
     private _requestsService: RequestsService
@@ -23,6 +24,7 @@ export class ExternalComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadUser(this.userId);
+    this.date = new Date();
   }
 
   loadUser(userId: any) {

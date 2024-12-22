@@ -2,6 +2,7 @@
 <div class="container">
     <input type="text" [(ngModel)]="userId" (keyup.enter)="loadUser(userId)">
     <h1>Requests services</h1>
+    <h2><strong>{{ date | date:'fullDate' }}</strong></h2>
     <div *ngIf="user" id="user">
         <img src="{{user.avatar}}">
         <h1>{{ user.first_name }} {{ user.last_name }}</h1>
