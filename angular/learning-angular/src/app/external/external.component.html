@@ -1,4 +1,3 @@
-
 <div class="container">
     <input type="text" [(ngModel)]="userId" (keyup.enter)="loadUser(userId)">
     <h1>Requests services</h1>
@@ -8,4 +7,29 @@
         <h1>{{ user.first_name }} {{ user.last_name }}</h1>
         <h2>{{ user.email }}</h2>
     </div>
+</div>
+
+<div class="container">
+    <h1>Crear usuario</h1>
+    <form #newUser="ngForm" (ngSubmit)="onSubmit(newUser)">
+        <label for="name">Nombre</label>
+        <input type="text" name="name" #name="ngModel" [(ngModel)]="new_user.name" required>
+        <span *ngIf="name.touched && !name.valid" class="error">Ingrese el nombre para continuar</span>
+
+        <label for="job">Trabajo</label>
+        <input type="text" name="job" #job="ngModel" [(ngModel)]="new_user.job" required>
+        <span *ngIf="job.touched && !job.valid" class="error">Ingrese el trabajo para continuar</span>
+
+        <div>
+            <input type="submit" value="Enviar" class="btn-primary" [disabled]="!newUser.form.valid">
+        </div>
+    </form>
+</div>
+
+<div class="container" *ngIf="user_saved">
+    <h2>Datos devueltos</h2>
+    <p>ID: {{ user_saved.id }}</p>
+    <p>Nombre: {{ user_saved.name }}</p>
+    <p>Trabajo: {{ user_saved.job }}</p>
+    <p>fecha: {{ user_saved.createdAt }}</p>
 </div>
