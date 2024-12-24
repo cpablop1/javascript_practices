@@ -54,11 +54,11 @@ var controller = {
 
   getProjects: async (req, res) => {
     try {
-      const proyects = await Project.find();
+      const projects = await Project.find();
 
-      if (proyects.length === 0) return res.status(404).send({ message: 'No projects found.' });
+      if (projects.length === 0) return res.status(404).send({ message: 'No projects found.' });
 
-      return res.status(200).send({ proyects });
+      return res.status(200).send({ projects });
 
     } catch (err) {
       return res.status(500).send({ message: 'Error retrieving projects.', error: err.message });
@@ -70,7 +70,7 @@ var controller = {
       let projectId = req.params.id;
       let update = req.body;
 
-      if (!projectId) return res.status(404).send({message: 'Id required for update.'});
+      if (!projectId) return res.status(404).send({ message: 'Id required for update.' });
 
       const updateProject = await Project.findByIdAndUpdate(projectId, update, { new: true });
 
@@ -80,6 +80,21 @@ var controller = {
 
     } catch (err) {
       return res.status(500).send({ message: 'Error updating project.', error: err.message });
+    }
+  },
+
+  deleteProject: async (req, res) => {
+    try {
+      let projectId = req.params.id;
+
+      let deleteProject = await Project.findByIdAndDelete(projectId);
+
+      if (!deleteProject) return res.status(404).send({ message: 'Project not found.' });
+
+      return res.status(200).send({ message: 'Project deleted successfully.', project: deleteProject });
+
+    } catch (err) {
+      return res.status(500).send({ message: 'Error deleting project.', error: err.message });
     }
   }
 }
