@@ -1,6 +1,7 @@
 'use strict'
 
 var Project = require('../models/projects');
+var fs = require('fs');
 
 var controller = {
   home: (req, res) => {
@@ -95,6 +96,38 @@ var controller = {
 
     } catch (err) {
       return res.status(500).send({ message: 'Error deleting project.', error: err.message });
+    }
+  },
+
+  uploadImage: async (req, res) => {
+    try {
+      var projectId = req.params.id;
+      var fileName = 'Image not uploaded';
+
+      if (req.files) {
+        var filePath = req.files.image.path;
+        var fileSplit = filePath.split('\\');
+        fileName = fileSplit[1];
+        var extSplit = fileName.split('\.');
+        var fileExt = extSplit[1];
+
+        if (fileExt == 'png' || fileExt == 'jpg' || fileExt == 'jpeg' || fileExt == 'gif') {
+          var project = await Project.findByIdAndUpdate(projectId, { image: fileName }, { new: true });
+
+          if (!project) return res.status(404).send({ message: 'The project does not exist' });
+
+          return res.status(200).send({ project: project });
+        }else{
+          fs.unlink(filePath, err => {
+            return res.status(200).send({message: 'The extension is not valid.', ext: fileExt})
+          });
+        }
+
+      } else {
+        return res.status(200).send({ message: fileName });
+      }
+    } catch (err) {
+      return res.status(500).send({ message: 'The image has not been uploaded.' });
     }
   }
 }
