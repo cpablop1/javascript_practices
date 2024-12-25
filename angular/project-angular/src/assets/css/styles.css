@@ -66,7 +66,8 @@ header a {
     transition: all 300ms;
 }
 
-header a:hover {
+header a:hover,
+.actived {
     background-color: rgba(0, 0, 0, 0.8);
 }
 
@@ -87,6 +88,7 @@ header a:hover {
     color: black;
     transform: scale(1.50, 1.50);
 }
+
 /* End */
 
 /* Main container styles */
@@ -99,6 +101,60 @@ header a:hover {
     border-right: 1px solid #b7b7b7;
     background-color: rgba(255, 255, 255, 0.7);
     padding-top: 120px;
+}
+
+/* End */
+
+/* Footer styles */
+footer {
+    width: 75%;
+    margin: 0px auto;
+    padding-top: 15px;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+/* End */
+
+/* About styles */
+#title {
+    width: 70%;
+    margin: 0px auto;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 70px;
+}
+
+#title h1 {
+    font-family: 'finger';
+    font-size: 60px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 5px;
+}
+
+#title h2 {
+    font-size: 25px;
+    color: gray;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+article.about {
+    width: 70%;
+    margin: 0px auto;
+    margin-bottom: 20px;
+    font-size: 23px;
+}
+
+.about h2{
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+}
+
+.about p{
+    padding-top: 20px;
+    padding-bottom: 30px;
+    text-align: justify;
 }
 
 /* End */
