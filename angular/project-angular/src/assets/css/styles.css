@@ -9,29 +9,31 @@
     font-family: 'finger';
     src: url('fonts/finger.ttf');
 }
+
 /* End */
 
 /* General styles */
-*{
+* {
     margin: 0px;
     padding: 0px;
 }
 
-body{
+body {
     font-family: 'yanone', Arial, Helvetica, sans-serif;
     font-size: 20px;
     background-image: url('img/pattern.png');
     background-attachment: fixed;
 }
 
-.clearfix{
+.clearfix {
     float: none;
     clear: both;
 }
+
 /* End */
 
 /* Navigation bar */
-header{
+header {
     width: 100%;
     height: 90px;
     background-color: rgba(53, 103, 164, 0.8);
@@ -39,22 +41,22 @@ header{
     text-transform: uppercase;
 }
 
-header ul{
+header ul {
     display: block;
-    width: 39%;
+    width: 40%;
     height: inherit;
     margin: 0px auto;
     margin-top: -3px;
 }
 
-header ul li{
+header ul li {
     display: inline-block;
     margin: 0px auto;
     text-align: center;
     line-height: 88px;
 }
 
-header a{
+header a {
     display: block;
     padding-right: 20px;
     padding-left: 20px;
@@ -64,24 +66,39 @@ header a{
     transition: all 300ms;
 }
 
-header a:hover{
+header a:hover {
     background-color: rgba(0, 0, 0, 0.8);
 }
+
 /* End */
 
 /* Logo styles */
-#logo{
+#logo {
     font-family: 'finger';
     font-size: 30px;
 }
 
-#logo a{
+#logo a {
     transition: color 500ms, transform 500ms;
 }
 
-#logo a:hover{
+#logo a:hover {
     background-color: transparent;
     color: black;
     transform: scale(1.50, 1.50);
 }
+/* End */
+
+/* Main container styles */
+#content {
+    min-height: 500px;
+    width: 75%;
+    margin: 0px auto;
+    box-shadow: 0px 0px 40px black;
+    border-left: 1px solid #b7b7b7;
+    border-right: 1px solid #b7b7b7;
+    background-color: rgba(255, 255, 255, 0.7);
+    padding-top: 120px;
+}
+
 /* End */
