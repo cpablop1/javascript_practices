@@ -25,7 +25,7 @@ export class CreateComponent implements OnInit {
   // Method for creating projects
   onSubmit(form: any) {
     // Code here....
-    console.log(form);
+    console.log(this.project);
   }
 
   ngOnInit(): void {
