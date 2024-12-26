@@ -1,11 +1,34 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Project } from '../../models/project';
+import { ProjectService } from '../../services/project.service';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-create',
-  imports: [],
+  imports: [FormsModule],
   templateUrl: './create.component.html',
-  styleUrl: './create.component.css'
+  styleUrl: './create.component.css',
+  providers: [ProjectService]
 })
-export class CreateComponent {
+export class CreateComponent implements OnInit {
+  public title: string;
+  public project: Project;
 
+  // Constructor method
+  constructor(
+    private _projectService: ProjectService
+  ) {
+    this.title = 'Create project';
+    this.project = new Project('', '', '', '', 2024, [''], '');
+  }
+
+  // Method for creating projects
+  onSubmit(form: any) {
+    // Code here....
+    console.log(form);
+  }
+
+  ngOnInit(): void {
+    // Code here...
+  }
 }
