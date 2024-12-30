@@ -2,10 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { Project } from '../../models/project';
 import { ProjectService } from '../../services/project.service';
 import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-create',
-  imports: [FormsModule],
+  imports: [FormsModule, CommonModule],
   templateUrl: './create.component.html',
   styleUrl: './create.component.css',
   providers: [ProjectService]
@@ -19,7 +20,7 @@ export class CreateComponent implements OnInit {
     private _projectService: ProjectService
   ) {
     this.title = 'Create project';
-    this.project = new Project('', '', '', '', 2024, [''], '');
+    this.project = new Project('', '', '', '', 2024, '', '');
   }
 
   // Method for creating projects
