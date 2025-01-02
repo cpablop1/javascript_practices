@@ -14,6 +14,7 @@ import { CommonModule } from '@angular/common';
 export class CreateComponent implements OnInit {
   public title: string;
   public project: Project;
+  public status: string;
 
   // Constructor method
   constructor(
@@ -21,12 +22,25 @@ export class CreateComponent implements OnInit {
   ) {
     this.title = 'Create project';
     this.project = new Project('', '', '', '', 2024, '', '');
+    this.status = '';
   }
 
   // Method for creating projects
   onSubmit(form: any) {
     // Code here....
-    console.log(this.project);
+    this._projectService.saveProject(this.project).subscribe(
+      response => {
+        if (response.project) {
+          this.status = 'success';
+          form.reset();
+        } else {
+          this.status = 'failed';
+        }
+      },
+      error => {
+        console.log(<any>error);
+      }
+    );
   }
 
   ngOnInit(): void {
