@@ -31,7 +31,7 @@
         </p>
         <p>
             <label for="image">Project image</label>
-            <input type="file" name="image" #imagen="ngModel" [(ngModel)]="project.image" placeholder="Upload image">
+            <input type="file" name="image" placeholder="Upload image" (change)="fileChangeEvent($event)">
         </p>
 
         <input type="submit" value="Save" [disabled]="!projectForm.form.valid" />
