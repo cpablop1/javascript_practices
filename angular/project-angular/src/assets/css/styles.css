@@ -94,6 +94,7 @@ header a:hover,
 /* Main container styles */
 #content {
     min-height: 500px;
+    height: auto;
     width: 75%;
     margin: 0px auto;
     box-shadow: 0px 0px 40px black;
@@ -101,6 +102,7 @@ header a:hover,
     border-right: 1px solid #b7b7b7;
     background-color: rgba(255, 255, 255, 0.7);
     padding-top: 120px;
+    padding-bottom: 20px;
 }
 
 /* End */
@@ -241,6 +243,35 @@ form input[disabled] {
 .failed {
     background-color: red;
     color: white;
+}
+
+/* End */
+
+/* Projects page */
+.project {
+    list-style: none;
+    display: block;
+    float: left;
+    width: 28%;
+    text-align: center;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 30px;
+}
+
+.project .image {
+    width: 100%;
+    height: 150px;
+    overflow: hidden;
+}
+
+.project img {
+    width: 100%;
+}
+
+.project a {
+    text-decoration: none;
+    color: black;
 }
 
 /* End */

@@ -2,6 +2,7 @@
 
 var Project = require('../models/projects');
 var fs = require('fs');
+var path = require('path');
 
 var controller = {
   home: (req, res) => {
@@ -117,9 +118,9 @@ var controller = {
           if (!project) return res.status(404).send({ message: 'The project does not exist' });
 
           return res.status(200).send({ project: project });
-        }else{
+        } else {
           fs.unlink(filePath, err => {
-            return res.status(200).send({message: 'The extension is not valid.', ext: fileExt})
+            return res.status(200).send({ message: 'The extension is not valid.', ext: fileExt })
           });
         }
 
@@ -129,6 +130,19 @@ var controller = {
     } catch (err) {
       return res.status(500).send({ message: 'The image has not been uploaded.' });
     }
+  },
+
+  getImageFile: (req, res) => {
+    var file = req.params.image;
+    var path_file = './uploads/' + file;
+
+    fs.exists(path_file, exists => {
+      if (exists) {
+        return res.sendFile(path.resolve(path_file));
+      } else {
+        return res.status(200).send({ message: 'The image does not exist!' });
+      }
+    });
   }
 }
 

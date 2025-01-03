@@ -5,6 +5,7 @@ import { AboutComponent } from './component/about/about.component';
 import { ContactComponent } from './component/contact/contact.component';
 import { CreateComponent } from './component/create/create.component';
 import { ProjectsComponent } from './component/projects/projects.component';
+import { DetailComponent } from './component/detail/detail.component';
 import { ErrorComponent } from './component/error/error.component';
 
 export const routes: Routes = [
@@ -13,5 +14,6 @@ export const routes: Routes = [
     { path: 'projects', component: ProjectsComponent },
     { path: 'create-project', component: CreateComponent },
     { path: 'contact', component: ContactComponent },
+    { path: 'project/:id', component: DetailComponent },
     { path: '**', component: ErrorComponent }
 ];

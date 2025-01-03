@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
-import { Observable } from "rxjs";
+import { ObjectUnsubscribedError, Observable, retry } from "rxjs";
 import { Global } from "./global";
 import { Project } from "../models/project";
 
@@ -26,5 +26,17 @@ export class ProjectService {
         let headers = new HttpHeaders().set('Content-type', 'application/json');
 
         return this._http.post(this.api + 'save-project', params, { headers: headers });
+    }
+
+    getProjects(): Observable<any> {
+        let headers = new HttpHeaders().set('Content-type', 'application/json');
+
+        return this._http.get(this.api + 'projects', { headers: headers });
+    }
+
+    getProject(id: any): Observable<any> {
+        let headers = new HttpHeaders().set('Content-type', 'application/json');
+
+        return this._http.get(this.api + 'project/' + id, { headers: headers });
     }
 }

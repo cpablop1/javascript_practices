@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 // Import models...
 import { Project } from '../../models/project';
@@ -14,7 +15,7 @@ import { Global } from '../../services/global';
 
 @Component({
   selector: 'app-create',
-  imports: [FormsModule, CommonModule],
+  imports: [FormsModule, CommonModule, RouterModule],
   templateUrl: './create.component.html',
   styleUrl: './create.component.css',
   providers: [ProjectService, UploadService]
@@ -24,6 +25,7 @@ export class CreateComponent implements OnInit {
   public project: Project;
   public status: string;
   public fileToUpload: Array<File>;
+  public save_project: any;
 
   // Constructor method
   constructor(
@@ -46,7 +48,7 @@ export class CreateComponent implements OnInit {
           // Upload image
           this._uploadService.makeFileRequest(Global.api + 'upload-image/' + response.project._id, [], this.fileToUpload, 'image')
             .then((result: any) => {
-              console.log(result);
+              this.save_project = result.project;
               this.status = 'success';
               // Reset form
               form.reset();
