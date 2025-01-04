@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 // Importing global config
 import { Global } from '../../services/global';
@@ -12,7 +13,7 @@ import { Project } from '../../models/project';
 
 @Component({
   selector: 'app-detail',
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './detail.component.html',
   styleUrl: './detail.component.css',
   providers: [ProjectService]
